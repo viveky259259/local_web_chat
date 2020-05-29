@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "35254642623",
+    "firebase_url": "https://local-vendor-78057.firebaseio.com",
+    "project_id": "local-vendor-78057",
+    "storage_bucket": "local-vendor-78057.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:35254642623:android:1480c64b20cc11ed66230a",
+        "android_client_info": {
+          "package_name": "stringsway.co.localwebchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "35254642623-0uabsl0c56qjk58iqc62n0kemlo4j461.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "stringsway.co.localwebchat",
+            "certificate_hash": "7ad78d4a48a622c8d72966184ea2003e478dafa6"
+          }
+        },
+        {
+          "client_id": "35254642623-hehef041g46h56si2cpbthssmqjc5ut2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC16umDQRO0NF7TQpgMJEGw-KpY8eY7_R0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "35254642623-hehef041g46h56si2cpbthssmqjc5ut2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
