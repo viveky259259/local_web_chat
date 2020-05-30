@@ -658,14 +658,15 @@ class _CustomMessageInputState extends State<CustomMessageInput> {
 
       final attachment = _SendingAttachment(
         file: file,
-        type: FileType.any,
+        type: FileType.audio,
+
       );
 
       setState(() {
         _attachments.add(attachment);
       });
 
-      final url = await _uploadAttachment(file, FileType.any, channel);
+      final url = await _uploadAttachment(file, FileType.audio, channel,);
 
       attachment.url = url;
 

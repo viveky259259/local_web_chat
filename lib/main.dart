@@ -1,4 +1,6 @@
+import 'package:audioplayer/audioplayer.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:localwebchat/stream/custom_message_input.dart';
 import 'package:stream_chat_flutter/stream_chat_flutter.dart';
 
@@ -58,9 +60,38 @@ class ChannelPage extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: MessageListView(),
+            child: MessageListView(
+              onThreadTap: (message, widget) {
+                print(message.toString());
+              },
+              onFileAction: (Message mesage) async {
+                print(mesage.toString());
+                http.Response r =
+                    await http.head(mesage.attachments[0].assetUrl);
+                print(r.headers["content-length"]);
+                String contentType = r.headers['content-type'];
+                if (contentType.split("/")[0].compareTo("audio") == 0) {
+                  print('Audio file');
+                  AudioPlayer audioPlugin = AudioPlayer();
+                  await audioPlugin.play(mesage.attachments[0].assetUrl);
+                  audioPlugin.onPlayerStateChanged
+                      .listen((AudioPlayerState event) {
+                    print(event);
+                    if (event == AudioPlayerState.COMPLETED) {
+                      print('completed');
+                    }
+                  });
+                }
+              },
+              onMessageActions: (BuildContext context, Message message) {
+                print(message.toString());
+              },
+              onMentionTap: (user) {
+                print(user);
+              },
+            ),
           ),
-          CustomMessageInput(client,channel),
+          CustomMessageInput(client, channel),
         ],
       ),
     );
